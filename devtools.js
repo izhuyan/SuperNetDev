@@ -1,0 +1,1 @@
+(function(){chrome.devtools.panels.create(`SuperNetDev`,`icons/icon128.png`,`index.html`)})();
