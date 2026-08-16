@@ -3,7 +3,8 @@ var e = {
 	rules: "netManager.rules",
 	interceptEnabled: "netManager.interceptEnabled",
 	tourSeen: "netManager.tourSeen",
-	locale: "netManager.locale"
+	locale: "netManager.locale",
+	preserveLog: "netManager.preserveLog"
 }, t = "NET_MANAGER";
 //#endregion
 //#region src/lib/i18n.ts
