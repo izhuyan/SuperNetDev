@@ -1,6 +1,7 @@
 //#region src/lib/constants.ts
 var e = {
 	rules: "netManager.rules",
+	groups: "netManager.groups",
 	interceptEnabled: "netManager.interceptEnabled",
 	tourSeen: "netManager.tourSeen",
 	locale: "netManager.locale",
@@ -44,20 +45,30 @@ chrome.runtime.onInstalled.addListener(() => {
 	e.onMessage.addListener((n) => {
 		n.type === "REGISTER_PANEL" && typeof n.tabId == "number" && (t.tabId = n.tabId, r.set(n.tabId, e));
 	}), e.onDisconnect.addListener(() => {
-		typeof t.tabId == "number" && r.delete(t.tabId);
+		typeof t.tabId == "number" && r.get(t.tabId) === e && r.delete(t.tabId);
 	});
-}), chrome.runtime.onMessage.addListener((e, t, n) => {
+}), chrome.runtime.onMessage.addListener((e, n, a) => {
 	if (!(!e || e.source !== "NET_MANAGER")) {
-		if (e.type === "GET_SETTINGS") return i().then(n), !0;
+		if (e.type === "GET_SETTINGS") return i().then(a), !0;
 		if (e.type === "CAPTURED_REQUEST") {
-			let n = t.tab?.id, i = e.request;
-			n && i && r.get(n)?.postMessage({
-				type: "MOCKED_REQUEST",
-				request: i
-			});
+			let i = n.tab?.id, a = e.request;
+			if (i && a) {
+				let e = {
+					source: t,
+					type: "MOCKED_REQUEST",
+					tabId: i,
+					request: a
+				};
+				try {
+					r.get(i)?.postMessage(e);
+				} catch {}
+				try {
+					chrome.runtime.sendMessage(e, () => void chrome.runtime.lastError);
+				} catch {}
+			}
 			return;
 		}
-		if (e.type === "CONTENT_READY") return i().then(n), !0;
+		if (e.type === "CONTENT_READY") return i().then(a), !0;
 	}
 });
 //#endregion
