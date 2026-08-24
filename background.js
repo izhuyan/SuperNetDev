@@ -5,7 +5,8 @@ var e = {
 	interceptEnabled: "netManager.interceptEnabled",
 	tourSeen: "netManager.tourSeen",
 	locale: "netManager.locale",
-	preserveLog: "netManager.preserveLog"
+	preserveLog: "netManager.preserveLog",
+	fieldNotes: "netManager.fieldNotes"
 }, t = "NET_MANAGER";
 //#endregion
 //#region src/lib/i18n.ts
@@ -69,6 +70,7 @@ chrome.runtime.onInstalled.addListener(() => {
 			return;
 		}
 		if (e.type === "CONTENT_READY") return i().then(a), !0;
+		if (e.type === "FETCH_RELEASES_PAGE") return fetch("https://github.com/izhuyan/SuperNetDev/releases", { headers: { Accept: "text/html" } }).then((e) => e.ok ? e.text() : null).then((e) => a({ html: e })).catch(() => a({ html: null })), !0;
 	}
 });
 //#endregion
