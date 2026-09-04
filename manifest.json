@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SuperNetDev",
   "short_name": "SuperNetDev",
-  "version": "1.0.0",
+  "version": "1.0.11",
   "description": "SuperNetDev：查看请求、模糊匹配拦截、延迟、修改请求头/体、Mock 响应。",
   "icons": {
     "16": "icons/icon16.png",
@@ -15,18 +15,31 @@
     "service_worker": "background.js",
     "type": "module"
   },
-  "permissions": ["storage", "tabs"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["injected.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "injected.js"
+      ],
       "run_at": "document_start",
       "world": "MAIN"
     },
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_start",
       "world": "ISOLATED"
     }
