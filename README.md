@@ -109,8 +109,8 @@ On the **Rules** tab you can:
 
 | Mode | Example | Notes |
 | :--- | :--- | :--- |
-| Fuzzy | `getUserInfo` | Matches `/prod-api/user/getUserInfo?userCode=202084` |
-| Wildcard | `*/prod-api/multiclaim/*` | `*` matches any segment |
+| Fuzzy | `getStudentInfo` | Matches `/cs-api/student/getStudentInfo?studentId=20240001` |
+| Wildcard | `*/cs-api/course/*` | `*` matches any segment |
 | Regex | `claimInfo$` | Match URL with a regular expression |
 | Exact | Full URL or path | Must match exactly |
 

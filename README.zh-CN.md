@@ -109,8 +109,8 @@
 
 | 方式 | 例子 | 说明 |
 | :--- | :--- | :--- |
-| 模糊 | `getUserInfo` | 可命中 `/prod-api/user/getUserInfo?userCode=202084` |
-| 通配符 | `*/prod-api/multiclaim/*` | `*` 匹配任意片段 |
+| 模糊 | `getStudentInfo` | 可命中 `/cs-api/student/getStudentInfo?studentId=20240001` |
+| 通配符 | `*/cs-api/course/*` | `*` 匹配任意片段 |
 | 正则 | `claimInfo$` | 按正则匹配 URL |
 | 精确 | 完整 URL 或路径 | 完全一致才命中 |
 
