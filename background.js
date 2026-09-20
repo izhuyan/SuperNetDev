@@ -6,7 +6,8 @@ var e = {
 	tourSeen: "netManager.tourSeen",
 	locale: "netManager.locale",
 	preserveLog: "netManager.preserveLog",
-	fieldNotes: "netManager.fieldNotes"
+	fieldNotes: "netManager.fieldNotes",
+	networkRequests: "netManager.networkRequests"
 }, t = "NET_MANAGER";
 //#endregion
 //#region src/lib/i18n.ts
